@@ -12,7 +12,10 @@ git clone git clone https://github.com/volatilization/wireguard-conf.git
 ### Install all dependencies:
 
 ``` bash
-sudo apt install wireguard qrencode curl &&
+sudo apt install zsh curl wireguard qrencode &&
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" &&
+chsh -s /usr/bin/zsh &&
+exec zsh &&
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash &&
 source .zshrc &&
 nvm install 21 &&
@@ -38,10 +41,10 @@ node wireguard-conf/addUser.js --wg-conf-name=wg0 --wg-conf-dir=/etc/wireguard -
 Add this to .zshrc
 
 ``` bash
-alias wg-setup="cd ~ && sudo node wireguard-conf/setUp.js --wg-admin=CURRENT_USER"
+alias wg-setup="echo PASSWORD | sudo -S node ~/wireguard-conf/setUp.js --wg-admin=CURRENT_USER"
 
 wg-add-user() {
-   cd ~ && node wireguard-conf/addUser.js --user-conf-name=$1 && sudo systemctl restart wg-quick@wg0 
+   node ~/wireguard-conf/addUser.js --user-conf-name=$1 && echo PASSWORD | sudo -S systemctl restart wg-quick@wg0 
 }
 ```
 then use `wg-setup` and `wg-add-user NEW_USER_NAME`
