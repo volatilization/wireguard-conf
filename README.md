@@ -38,7 +38,7 @@ node wireguard-conf/addUser.js --wg-conf-name=wg0 --wg-conf-dir=/etc/wireguard -
 Add this to .zshrc
 
 ``` bash
-alias wg-setup="cd ~ && sudo node sudo node wireguard-conf/setUp.js --wg-admin=CURRENT_USER"
+alias wg-setup="cd ~ && sudo node wireguard-conf/setUp.js --wg-admin=CURRENT_USER"
 
 wg-add-user() {
    cd ~ && node wireguard-conf/addUser.js --user-conf-name=$1 && sudo systemctl restart wg-quick@wg0 
