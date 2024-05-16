@@ -88,10 +88,10 @@ PrivateKey = ${privateKey}`
 }
 
 function setUpUserConfTemplate(publicKey, server, port) {
-    checkFilesExistence(['./users/user.conf.template']);
+    checkFilesExistence(['~/users/user.conf.template']);
 
-    mkdirSafe('./users');
-    writeFileSync('./users/user.conf.template',
+    mkdirSafe('~/users');
+    writeFileSync('~/users/user.conf.template',
 
 `[Peer]
 PublicKey = ${publicKey}
@@ -108,7 +108,7 @@ function setUpConfOwner(confDir, confName, owner) {
     }
 
     execSync(`chown -R ${owner}:${owner} ${confDir}`);
-    execSync(`chown -R ${owner}:${owner} ./users`);
+    execSync(`chown -R ${owner}:${owner} ~/users`);
 }
 
 function checkFilesExistence(fileNames) {
