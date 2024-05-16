@@ -6,7 +6,7 @@
 
 ``` bash
 sudo apt install git &&
-git clone git clone https://github.com/volatilization/wireguard-conf.git
+git clone https://github.com/volatilization/wireguard-conf.git
 ```
 
 ### Install all dependencies:
