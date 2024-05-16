@@ -18,6 +18,8 @@
 
 `nvm install 21`
 
+`sudo ln -s <whereis node> /usr/bin/node`
+
 ## Usage:
 
 ### Setup Wireguard configuration:
